@@ -16,7 +16,7 @@ Download R for your OS:
 
 RStudio is a free and open source integrated development environment (IDE) for R.
 
-Download it for free at https://www.rstudio.com/.
+Download it for free at https://www.rstudio.com/products/rstudio/download/.
 
 ## Using R scripts
 
