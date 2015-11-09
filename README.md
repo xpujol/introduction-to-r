@@ -1,4 +1,4 @@
-# Introduction to R
+# Introduction to R
 
 This repo contains a short introduction to the R language.
 
@@ -17,3 +17,13 @@ Download R for your OS:
 RStudio is a free and open source integrated development environment (IDE) for R.
 
 Download it for free at https://www.rstudio.com/.
+
+## Using R scripts
+
+Check out [01-r-script-examples.r](01-r-script-examples.r)
+
+## Using R markdown
+
+You can use R markdown to generate static report files.
+
+Check out [02-r-markdown.rmd](02-r-markdown.rmd)
