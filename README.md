@@ -20,10 +20,23 @@ Download it for free at https://www.rstudio.com/.
 
 ## Using R scripts
 
-Check out [01-r-script-examples.r](01-r-script-examples.r)
+Check out [01-introduction-to-r-scripts.R](01-introduction-to-r-scripts.R)
 
 ## Using R markdown
 
 You can use R markdown to generate static report files.
 
 Check out [02-r-markdown.rmd](02-r-markdown.rmd)
+
+## Shiny
+
+Shiny is a web application framework for R: http://shiny.rstudio.com/
+
+## htmlwidgets
+
+[htmlwidgets for R](http://www.htmlwidgets.org/).
+
+* Bring the best of JavaScript data visualization to R
+* Use JavaScript visualization libraries at the R console, just like plots
+* Embed widgets in R Markdown documents and Shiny web applications
+* Develop new widgets using a framework that seamlessly bridges R and JavaScript
