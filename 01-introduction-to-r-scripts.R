@@ -47,8 +47,8 @@ A
 B <- matrix(data = x, nrow = 5, ncol = 2, byrow = TRUE)
 B
 
-B[3,2] # access an element
-B[5,2] <- 0 # assign a new value to an element
+B[3, 2] # access an element
+B[5, 2] <- 0 # assign a new value to an element
 B
 
 # Help! I need somebody!
@@ -60,3 +60,29 @@ B
 #
 # 2. READING DATA
 #
+
+# Now we'll use some real data.
+# There's plenty of open data websites out there, we'll use OpenDataBarcelona as an example http://opendata.bcn.cat/opendata/
+
+# Load data using a URL or a local relative path
+# In this case, population of Barcelona by gender and district
+D <- read.table("https://raw.githubusercontent.com/xpujol/introduction-to-r/master/datasets/opendata_2014_tpob-cp01.csv", header = TRUE, sep= ";", dec = ".")
+
+D # Look at the data. Notice de NA values (Not Available)
+D <- na.omit(D) # We'll clean up the data:
+D # Now that's nicer
+
+summary(D) # Summary of the data
+
+# Use the "$" operator to access a certain column
+D$DONES
+# That's equivalent if you know the column number
+D[,5]
+
+# The data.frames can contain different types of data. For example, "DTE" and "BARRIS" are strings, whereas "TOTAL", "HOMES" and "DONES" are integers.
+# On the other hand, the matrices we've seen before can only contain one type of data
+
+# There's a special column type: "factors", which take on a limited number of different values. Each value is called a "level"
+
+# Let's convert the column "DTE" ("district") to a factor
+D$DTE <- as.factor(D$DTE)
