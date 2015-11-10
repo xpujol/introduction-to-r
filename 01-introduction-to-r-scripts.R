@@ -58,7 +58,7 @@ B
 
 
 #
-# 2. READING DATA
+# 2. READING AND FORMATTING DATA
 #
 
 # Now we'll use some real data.
@@ -79,8 +79,8 @@ D$DONES
 # That's equivalent if you know the column number
 D[,5]
 
-# The data.frames can contain different types of data. For example, "DTE" and "BARRIS" are strings, whereas "TOTAL", "HOMES" and "DONES" are integers.
-# On the other hand, the matrices we've seen before can only contain one type of data
+# The matrices we've seen before can only contain one type of data.
+# But data.frames can contain different types of data. For example, "DTE" and "BARRIS" are strings, whereas "TOTAL", "HOMES" and "DONES" are integers.
 
 # There's a special column type: "factors", which take on a limited number of different values. Each value is called a "level"
 
