@@ -7,7 +7,6 @@
 #
 
 # Basic math operations
-# (go to the desired)
 4 + 3 # you'll see a [1] appearing at the left of the result. This is a reference (we'll take a look at it later)
 4 * 3
 cos(0)
@@ -39,6 +38,11 @@ y
 # Let's draw!
 plot(x, y)
 plot(y, x)
+
+# Try It Yourself!
+# Obtain a vector z which is the result of multiplying by 3 each number of the vector x
+z <- ...
+# Easy, right? :)
 
 # Matrices
 A <- matrix(data = x, nrow = 5, ncol = 2, byrow = FALSE)
@@ -76,11 +80,11 @@ D$AGE_AVG
 D[,3]
 
 # The matrices we've seen before can only contain one type of data.
-# But data.frames can contain different types of data. For example, "DTE" and "BARRIS" are strings, whereas "AGE_AVG", "PERC_FEMALE" and "HOUSEHOLD_SIZE" are integers.
+# But data.frames can contain different types of data. For example, "DISTRICT" and "NEIGHBORHOOD" are strings, whereas "AGE_AVG", "PERC_FEMALE" and "HOUSEHOLD_SIZE" are integers.
 
 # There's a special column type: "factors", which take on a limited number of different values. Each value is called a "level".
-# The column "DTE" is a factor with 10 levels
-D$DTE
+# The column "DISTRICT" is a factor with 10 levels
+D$DISTRICT
 
 
 #
@@ -94,7 +98,7 @@ plot(D$HOUSEHOLD_SIZE, xlab="Barcelona neighborhoods", ylab="Household size")
 # We don't see much here, we can just guess whether or not the neighborhoods are homogeneous in terms of age, female population, etc
 
 # Let's group de data per district:
-boxplot(D$AGE_AVG ~ D$DTE, xlab="Barcelona districts", ylab="Average age")
+boxplot(D$AGE_AVG ~ D$DISTRICT, xlab="Barcelona districts", ylab="Average age")
 # In what district have all the neighbourhoods a low average age?
 
 # Now draw the boxplots for Female population and Household size per district
