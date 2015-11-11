@@ -58,31 +58,56 @@ B
 
 
 #
-# 2. READING AND FORMATTING DATA
+# 2. READING DATA
 #
 
 # Now we'll use some real data.
 # There's plenty of open data websites out there, we'll use OpenDataBarcelona as an example http://opendata.bcn.cat/opendata/
 
 # Load data using a URL or a local relative path
-# In this case, population of Barcelona by gender and district
-D <- read.table("https://raw.githubusercontent.com/xpujol/introduction-to-r/master/datasets/opendata_2014_tpob-cp01.csv", header = TRUE, sep= ";", dec = ".")
-
-D # Look at the data. Notice de NA values (Not Available)
-D <- na.omit(D) # We'll clean up the data:
-D # Now that's nicer
+# In this case, population of Barcelona by gender, age and household occupation per district
+D <- read.table("https://raw.githubusercontent.com/xpujol/introduction-to-r/master/datasets/barcelona_age_gender_occupation.csv", header=TRUE, sep=",")
 
 summary(D) # Summary of the data
 
 # Use the "$" operator to access a certain column
-D$DONES
-# That's equivalent if you know the column number
-D[,5]
+D$AGE_AVG
+# That's equivalent if you know the column number (columns are numbered starting from 1)
+D[,3]
 
 # The matrices we've seen before can only contain one type of data.
-# But data.frames can contain different types of data. For example, "DTE" and "BARRIS" are strings, whereas "TOTAL", "HOMES" and "DONES" are integers.
+# But data.frames can contain different types of data. For example, "DTE" and "BARRIS" are strings, whereas "AGE_AVG", "PERC_FEMALE" and "HOUSEHOLD_SIZE" are integers.
 
-# There's a special column type: "factors", which take on a limited number of different values. Each value is called a "level"
+# There's a special column type: "factors", which take on a limited number of different values. Each value is called a "level".
+# The column "DTE" is a factor with 10 levels
+D$DTE
 
-# Let's convert the column "DTE" ("district") to a factor
-D$DTE <- as.factor(D$DTE)
+
+#
+# 3. ANALYSING DATA
+#
+
+# Analysis of 1 variable
+plot(D$AGE_AVG, xlab="Barcelona neighborhoods", ylab="Average age")
+plot(D$PERC_FEMALE, xlab="Barcelona neighborhoods", ylab="Percentage of female population")
+plot(D$HOUSEHOLD_SIZE, xlab="Barcelona neighborhoods", ylab="Household size")
+# We don't see much here, we can just guess whether or not the neighborhoods are homogeneous in terms of age, female population, etc
+
+# Let's group de data per district:
+boxplot(D$AGE_AVG ~ D$DTE, xlab="Barcelona districts", ylab="Average age")
+# In what district have all the neighbourhoods a low average age?
+
+# Now draw the boxplots for Female population and Household size per district
+boxplot(..., xlab="Barcelona neighborhoods", ylab="Percentage of female population")
+boxplot(..., xlab="Barcelona neighborhoods", ylab="Household size")
+
+# Let's draw all the variables together
+# With pch you can change the icon used to draw the plot
+pairs(~AGE_AVG+PERC_FEMALE+HOUSEHOLD_SIZE, data=D, pch=24)
+
+# What variables do you think are corelated?
+# Try replacing the values of VARIABLE1 and VARIABLE2 to see the linear regression of two correlated variables
+plot(D$VARIABLE1, D$VARIABLE2, col = "red", xlab = "Description of VARIABLE1", ylab = "Description of VARIABLE2")
+model <- lm(D$VARIABLE2, D$VARIABLE1)
+abline(model, col = "blue", lty = 2)
+legend("bottomright", inset = .05, c("observations", "adjustment"), col = c("red","blue"), pch = c(1,NA), lty = c(NA,2))
