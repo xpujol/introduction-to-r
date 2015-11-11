@@ -20,7 +20,7 @@ Download it for free at https://www.rstudio.com/products/rstudio/download/.
 
 ## Using R scripts
 
-Check out [01-introduction-to-r-scripts.R](01-introduction-to-r-scripts.R)
+Launch R Studio and open the file [01-introduction-to-r-scripts.R](01-introduction-to-r-scripts.R)
 
 ## <del>Using R markdown</del>
 
