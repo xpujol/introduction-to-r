@@ -22,15 +22,17 @@ Download it for free at https://www.rstudio.com/products/rstudio/download/.
 
 Check out [01-introduction-to-r-scripts.R](01-introduction-to-r-scripts.R)
 
-## Using R markdown
+## <del>Using R markdown</del>
 
-You can use R markdown to generate static report files.
+<del>You can use R markdown to generate static report files.</del>
 
-Check out [02-r-markdown.rmd](02-r-markdown.rmd)
+<del>Check out [02-r-markdown.rmd](02-r-markdown.rmd)</del>
 
 ## Shiny
 
-Shiny is a web application framework for R: http://shiny.rstudio.com/
+Shiny is a web application framework for R: http://shiny.rstudio.com/.
+
+Check out [02-shiny-web-application.R](02-shiny-web-application.R)
 
 ## htmlwidgets
 
