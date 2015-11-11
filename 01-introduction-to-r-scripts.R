@@ -112,6 +112,6 @@ pairs(~AGE_AVG+PERC_FEMALE+HOUSEHOLD_SIZE, data=D, pch=24)
 # What variables do you think are corelated?
 # Try replacing the values of VARIABLE1 and VARIABLE2 to see the linear regression of two correlated variables
 plot(D$VARIABLE1, D$VARIABLE2, col = "red", xlab = "Description of VARIABLE1", ylab = "Description of VARIABLE2")
-model <- lm(D$VARIABLE2, D$VARIABLE1)
+model <- lm(D$VARIABLE2 ~ D$VARIABLE1)
 abline(model, col = "blue", lty = 2)
 legend("bottomright", inset = .05, c("observations", "adjustment"), col = c("red","blue"), pch = c(1,NA), lty = c(NA,2))
