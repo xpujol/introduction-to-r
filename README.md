@@ -42,3 +42,14 @@ Check out [02-shiny-web-application.R](02-shiny-web-application.R)
 * Use JavaScript visualization libraries at the R console, just like plots
 * Embed widgets in R Markdown documents and Shiny web applications
 * Develop new widgets using a framework that seamlessly bridges R and JavaScript
+
+## Authors
+
+* Xevi Pujol [[github](https://github.com/xpujol)]
+* David Sànchez [[twitter](https://twitter.com/davidzehcnas)]
+* The Userzoom Monkey
+
+## Credits
+
+* First part of the introduction based on a tutorial script by Andreu Vall
+* Some examples taken from the [Shiny Tutorial](http://shiny.rstudio.com/tutorial/)
