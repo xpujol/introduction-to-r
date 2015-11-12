@@ -20,28 +20,14 @@ Download it for free at https://www.rstudio.com/products/rstudio/download/.
 
 ## Using R scripts
 
-Launch R Studio and open the file [01-introduction-to-r-scripts.R](01-introduction-to-r-scripts.R)
+You'll find the following contents in the file [introduction-to-r.R](introduction-to-r.R):
 
-## <del>Using R markdown</del>
+1. To get started
+1. Reading and analyzing real data
+1. The Iris data frame
+1. Shiny: a web application framework for R
 
-<del>You can use R markdown to generate static report files.</del>
-
-<del>Check out [02-r-markdown.rmd](02-r-markdown.rmd)</del>
-
-## Shiny
-
-Shiny is a web application framework for R: http://shiny.rstudio.com/.
-
-Check out [02-shiny-web-application.R](02-shiny-web-application.R)
-
-## htmlwidgets
-
-[htmlwidgets for R](http://www.htmlwidgets.org/).
-
-* Bring the best of JavaScript data visualization to R
-* Use JavaScript visualization libraries at the R console, just like plots
-* Embed widgets in R Markdown documents and Shiny web applications
-* Develop new widgets using a framework that seamlessly bridges R and JavaScript
+Launch R Studio and open the file [introduction-to-r.R](introduction-to-r.R)
 
 ## Authors
 

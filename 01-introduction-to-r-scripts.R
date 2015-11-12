@@ -62,7 +62,7 @@ B
 
 
 #
-# 2. READING DATA
+# 2. READING AND ANALYZING REAL DATA
 #
 
 # Now we'll use some real data.
@@ -72,24 +72,13 @@ B
 # In this case, population of Barcelona by gender, age and household occupation per district
 D <- read.table("https://raw.githubusercontent.com/xpujol/introduction-to-r/master/datasets/barcelona_age_gender_occupation.csv", header=TRUE, sep=",")
 
-summary(D) # Summary of the data
+# Take a look at the variable D. It's a type of variable called "data frame". We'll talk again about data frames later
+D
 
 # Use the "$" operator to access a certain column
 D$AGE_AVG
 # That's equivalent if you know the column number (columns are numbered starting from 1)
 D[,3]
-
-# The matrices we've seen before can only contain one type of data.
-# But data.frames can contain different types of data. For example, "DISTRICT" and "NEIGHBORHOOD" are strings, whereas "AGE_AVG", "PERC_FEMALE" and "HOUSEHOLD_SIZE" are integers.
-
-# There's a special column type: "factors", which take on a limited number of different values. Each value is called a "level".
-# The column "DISTRICT" is a factor with 10 levels
-D$DISTRICT
-
-
-#
-# 3. ANALYSING DATA
-#
 
 # Analysis of 1 variable
 plot(D$AGE_AVG, xlab="Barcelona neighborhoods", ylab="Average age")
@@ -115,3 +104,52 @@ plot(D$VARIABLE1, D$VARIABLE2, col = "red", xlab = "Description of VARIABLE1", y
 model <- lm(D$VARIABLE2 ~ D$VARIABLE1)
 abline(model, col = "blue", lty = 2)
 legend("bottomright", inset = .05, c("observations", "adjustment"), col = c("red","blue"), pch = c(1,NA), lty = c(NA,2))
+
+
+#
+# 3. THE IRIS DATA FRAME
+#
+
+# iris ??s un data.frame ja existent a R
+iris_df <- iris
+class(iris)
+# Imagineu un data.frame com una especie de matriu on puc barrejar columnes de diferents tipus, per exemple en aquest cas 4 num??riques i una categ??rica.
+# S'utilitza tipicament per a representar datasets, on tenim columnes (amb nom) per a les features i una per a les classes
+names(iris)
+# Puc escollir les columnes pel seu nom i hi puc afegir condicions
+iris$Sepal.Length
+iris[iris$Sepal.Length > 5, c("Sepal.Width", "Petal.Length")]
+iris[iris$Sepal.Length > 5, c(2, 3)]
+# Podem veure estad??stiques b??siques del dataset
+summary(iris)
+# ??dhuc estratificat per classe!
+by(iris_df, iris_df$Species, summary)
+# Podem fer plot per parelles i que cada row tingui un color diferent segons la classe
+pairs(iris_df[1:4], pch = 24, bg = c("red", "green3", "blue")[unclass(iris$Species)])
+
+# executeu "sudo R CMD javareconf" al vostre terminal
+
+train <- sample(1:150, 120)
+z <- lda(Species ~ Sepal.Length , iris_df, prior = c(1,1,1)/3, subset = train)
+sum((predict(z, iris_df[-train, ])$class == iris_df$Species[-train]))/30
+
+
+#
+# 4. SHINY: A WEB APPLICATION FRAMEWORK FOR R
+#
+
+# Install the "shiny" package (a package is a library offering extra functionality to the base R components)
+install.packages("shiny")
+
+# Load the package
+library(shiny)
+
+# We'll run a shiny app located in the folder "my-shiny-app" of this repo. Take a look at the files inside that folder.
+# Shiny apps have two components:
+#  1. a user-interface script (ui.R), which controls the layout and appearance of your app
+#  2. a server script (script.R), which contains the instructions that your computer or server needs to build your app
+
+# Run our shiny app
+# (change the path to the right one. It must be relative to your working directory)
+getwd() # get your working directory
+runApp("uz/r/introduction-to-r/my-shiny-app") # write the path relative to your working directory
