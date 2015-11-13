@@ -112,23 +112,24 @@ legend("bottomright", inset = .05, c("observations", "adjustment"), col = c("red
 
 # iris ??s un data.frame ja existent a R
 iris_df <- iris
-class(iris)
+class(iris_df)
 # Imagineu un data.frame com una especie de matriu on puc barrejar columnes de diferents tipus, per exemple en aquest cas 4 num??riques i una categ??rica.
 # S'utilitza tipicament per a representar datasets, on tenim columnes (amb nom) per a les features i una per a les classes
-names(iris)
+names(iris_df)
 # Puc escollir les columnes pel seu nom i hi puc afegir condicions
-iris$Sepal.Length
-iris[iris$Sepal.Length > 5, c("Sepal.Width", "Petal.Length")]
-iris[iris$Sepal.Length > 5, c(2, 3)]
+iris_df$Sepal.Length
+iris_df[iris_df$Sepal.Length > 5, c("Sepal.Width", "Petal.Length")]
+iris_df[iris_df$Sepal.Length > 5, c(2, 3)]
 # Podem veure estad??stiques b??siques del dataset
-summary(iris)
+summary(iris_df)
 # ??dhuc estratificat per classe!
 by(iris_df, iris_df$Species, summary)
 # Podem fer plot per parelles i que cada row tingui un color diferent segons la classe
 pairs(iris_df[1:4], pch = 24, bg = c("red", "green3", "blue")[unclass(iris$Species)])
 
-# executeu "sudo R CMD javareconf" al vostre terminal
-
+# executeu install.packages("MASS"), responeu "y" a la pregunta que us fa
+install.packages("MASS")
+library("MASS")
 train <- sample(1:150, 120)
 z <- lda(Species ~ Sepal.Length , iris_df, prior = c(1,1,1)/3, subset = train)
 sum((predict(z, iris_df[-train, ])$class == iris_df$Species[-train]))/30
