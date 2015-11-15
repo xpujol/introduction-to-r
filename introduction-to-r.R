@@ -110,19 +110,19 @@ legend("bottomright", inset = .05, c("observations", "adjustment"), col = c("red
 # 3. THE IRIS DATA FRAME
 #
 
-# iris ??s un data.frame ja existent a R
+# iris és un data.frame ja existent a R
 iris_df <- iris
 class(iris_df)
-# Imagineu un data.frame com una especie de matriu on puc barrejar columnes de diferents tipus, per exemple en aquest cas 4 num??riques i una categ??rica.
+# Imagineu un data.frame com una especie de matriu on puc barrejar columnes de diferents tipus, per exemple en aquest cas 4 numèriques i una categòrica.
 # S'utilitza tipicament per a representar datasets, on tenim columnes (amb nom) per a les features i una per a les classes
 names(iris_df)
 # Puc escollir les columnes pel seu nom i hi puc afegir condicions
 iris_df$Sepal.Length
 iris_df[iris_df$Sepal.Length > 5, c("Sepal.Width", "Petal.Length")]
 iris_df[iris_df$Sepal.Length > 5, c(2, 3)]
-# Podem veure estad??stiques b??siques del dataset
+# Podem veure estadístiques bàsiques del dataset
 summary(iris_df)
-# ??dhuc estratificat per classe!
+# Àdhuc estratificat per classe!
 by(iris_df, iris_df$Species, summary)
 # Podem fer plot per parelles i que cada row tingui un color diferent segons la classe
 pairs(iris_df[1:4], pch = 24, bg = c("red", "green3", "blue")[unclass(iris$Species)])
@@ -153,4 +153,4 @@ library(shiny)
 # Run our shiny app
 # (change the path to the right one. It must be relative to your working directory)
 getwd() # get your working directory
-runApp("uz/r/introduction-to-r/my-shiny-app") # write the path relative to your working directory
+runApp("introduction-to-r/my-shiny-app") # write the path relative to your working directory
